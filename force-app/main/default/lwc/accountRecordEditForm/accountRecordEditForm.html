@@ -1,0 +1,40 @@
+<template>
+    <lightning-card title="New Account" icon-name="standard:account">
+        <div class="slds-p-around_medium">
+
+            <lightning-record-edit-form object-api-name={objectApiName} onsuccess={handleSuccess}>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input-field field-name={fields.nameField} required></lightning-input-field>
+                        <lightning-input-field field-name={fields.billingStreet}></lightning-input-field>
+                        <lightning-input-field field-name={fields.billingCity}></lightning-input-field>
+                        <lightning-input-field field-name={fields.billingState}></lightning-input-field>
+                        <lightning-input-field field-name={fields.billingPostalCode}></lightning-input-field>
+                        <lightning-input-field field-name={fields.billingCountry}></lightning-input-field>
+                        <!-- <lightning-input-address
+                            address-label="Address"
+                            street-label="Billing Street"
+                            city-label="Billing City"
+                            country-label="Billing Country"
+                            province-label="Billing State/Province"
+                            postal-code-label="Billing PostalCode"
+                            required
+                            field-name="BillingAddress"></lightning-input-address> -->
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input-field field-name="AccountSource" required></lightning-input-field>
+                        <lightning-input-field field-name="AnnualRevenue" required></lightning-input-field>
+                        <lightning-input-field field-name="Website"></lightning-input-field>
+                    </div>
+                </div>
+
+                <div class="slds-p-around_medium slds-align_absolute-center">
+                    <lightning-button variant="brand" label="Save" title="save" type="submit"></lightning-button>
+                    &nbsp; &nbsp;
+                    <lightning-button variant="brand" label="Cancel" title="cancel" onclick={handleCancel}></lightning-button>
+                </div>
+            </lightning-record-edit-form>
+
+        </div>
+    </lightning-card>
+</template>
