@@ -41,5 +41,16 @@ export default class AccountRecordEditForm extends NavigationMixin(LightningElem
             }
         });
     }
+
+   /* - This is used to go back to previous page in the browser
+   
+   handleclose(){
+        setTimeout(
+            function(){
+                window.history.back();
+            },
+            1000
+        );
+    } */
 }
 
