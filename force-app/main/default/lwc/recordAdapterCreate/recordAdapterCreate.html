@@ -1,8 +1,9 @@
 <template>
     <lightning-card  variant="Narrow"  title="Hello" icon-name="standard:account">
         <div class="slds-p-around_medium">
-            
-                <lightning-input-field field-name="Name" onchange={handleFieldChange}></lightning-input-field>
+            <lightning-record-edit-form object-api-name="Account">
+                <lightning-messages></lightning-messages>               
+                 <lightning-input-field field-name="Name" onchange={handleFieldChange}></lightning-input-field>
                 <lightning-input-field field-name="BillingAddress" onchange={handleFieldChange}></lightning-input-field>
                 <lightning-input-field field-name="AccountSource" onchange={handleFieldChange}></lightning-input-field>
             
@@ -16,7 +17,9 @@
                 <lightning-button label="Save" variant="brand" onclick={handleSave}></lightning-button>
                 <lightning-button label="Cancel" onclick={handleCancel}></lightning-button>
             
-    </div>
+    
+</lightning-record-edit-form>
+</div>
     </lightning-card>
     
 </template>
