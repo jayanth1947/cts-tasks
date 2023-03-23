@@ -2,7 +2,7 @@ import { LightningElement, wire } from 'lwc';
 import { createRecord } from 'lightning/uiRecordApi';
 import ACCOUNT_OBJECT from '@salesforce/schema/Account';
 import { NavigationMixin } from 'lightning/navigation';
-
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 export default class CreateRecordAdapter extends NavigationMixin(LightningElement) {
     record = { apiName: ACCOUNT_OBJECT.objectApiName };
     fields = {};
