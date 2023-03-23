@@ -1,28 +1,36 @@
-import { LightningElement, wire } from 'lwc';
+import { LightningElement } from 'lwc';
 import { createRecord } from 'lightning/uiRecordApi';
 import ACCOUNT_OBJECT from '@salesforce/schema/Account';
-import { NavigationMixin } from 'lightning/navigation';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-export default class CreateRecordAdapter extends NavigationMixin(LightningElement) {
-    record = { apiName: ACCOUNT_OBJECT.objectApiName };
-    fields = {};
+import { NavigationMixin } from 'lightning/navigation';
 
-    handleFieldChange(event) {
-        const fieldName = event.target.fieldName;
-        const value = event.target.value;
-        this.fields[fieldName] = value;
+export default class CreateRecordAdapter extends NavigationMixin(LightningElement) {
+    accountFields = {};
+
+    accountSourceOptions = [
+        { label: 'Web', value: 'Web' },
+        { label: 'Phone Inquiry', value: 'Phone Inquiry' },
+        { label: 'Partner Referral', value: 'Partner Referral' },
+        { label: 'Purchased List', value: 'Purchased List' },
+        { label: 'Other', value: 'Other' }
+    ];
+
+    handleInputChange(event) {
+        const fieldName = event.target.name;
+        const fieldValue = event.target.value;
+        this.accountFields[fieldName] = fieldValue;
     }
 
     handleSave() {
-        const recordInput = { apiName: this.record.apiName, fields: this.fields };
+        const recordInput = { apiName: ACCOUNT_OBJECT.objectApiName, fields: this.accountFields };
         createRecord(recordInput)
             .then(account => {
-                this.dispatchEvent(new CustomEvent('accountcreated'));
                 this.showToast('Success', `Account created with Id: ${account.id}`);
+                //this.resetForm();
                 this.navigateToListView();
             })
             .catch(error => {
-                this.showToast('Error creating account', error.body.message, 'error');
+                this.showToast('Error', error.body.message, 'error');
             });
     }
 
@@ -34,14 +42,19 @@ export default class CreateRecordAdapter extends NavigationMixin(LightningElemen
         this[NavigationMixin.Navigate]({
             type: 'standard__objectPage',
             attributes: {
-                objectApiName: ACCOUNT_OBJECT.objectApiName,
+                objectApiName: 'Account',
                 actionName: 'list'
             }
         });
     }
 
     showToast(title, message, variant) {
-        const toastEvent = new ShowToastEvent({ title, message, variant });
+        const toastEvent = new ShowToastEvent({
+            title: title,
+            message: message,
+            variant: variant || 'success'
+        });
         this.dispatchEvent(toastEvent);
     }
 }
+``
