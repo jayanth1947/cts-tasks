@@ -22,12 +22,14 @@ export default class CreateRecordAdapter extends NavigationMixin(LightningElemen
     }
 
     handleSave() {
+        
         const recordInput = { apiName: ACCOUNT_OBJECT.objectApiName, fields: this.accountFields };
         createRecord(recordInput)
             .then(account => {
                 this.showToast('Success', `Account created with Id: ${account.id}`);
                 //this.resetForm();
                 this.navigateToListView();
+                
             })
             .catch(error => {
                 this.showToast('Error', error.body.message, 'error');
