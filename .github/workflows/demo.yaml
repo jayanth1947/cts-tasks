@@ -16,6 +16,12 @@ jobs:
       - name: Hello Demo
         run: echo "Hello Demo"
         shell: bash
+  middle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: End
+        run: echo "Middle Demo File"
+        shell: bash
   end:
     runs-on: ubuntu-latest
     steps:
