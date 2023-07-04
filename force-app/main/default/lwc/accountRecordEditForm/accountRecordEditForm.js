@@ -8,9 +8,10 @@ import BILLINGPOSTAL_FIELD from '@salesforce/schema/Account.BillingPostalCode';
 import BILLINGCOUNTRY_FIELD from '@salesforce/schema/Account.BillingCountry';
 import { NavigationMixin } from 'lightning/navigation';
 export default class AccountRecordEditForm extends NavigationMixin(LightningElement) {
-
+    // Setting the object API name
     objectApiName=ACCOUNT_OBJECT
 
+    // Setting the object API name
     fields={
         nameField:NAME_FIELD,
         billingStreet:BILLINGSTREET_FIELD,
@@ -20,6 +21,7 @@ export default class AccountRecordEditForm extends NavigationMixin(LightningElem
         billingCountry:BILLINGCOUNTRY_FIELD,
     }
     handleSuccess(event) {
+        //console.log('Record is created successfully');
         // Record is created successfully
         // Redirect user to the Account List View page
         this[NavigationMixin.Navigate]({
@@ -53,4 +55,3 @@ export default class AccountRecordEditForm extends NavigationMixin(LightningElem
         );
     } */
 }
-

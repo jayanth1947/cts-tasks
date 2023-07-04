@@ -2,10 +2,7 @@
     <lightning-card title="New Account" icon-name="standard:account">
         <div class="slds-p-around_medium">
 
-            <lightning-record-edit-form object-api-name={objectApiName} >
-                <!-- <div class="slds-grid slds-wraPp slds-gutters"> -->
-                       <!-- <div class="slds-col slds-size_1-of-2"> -->
-                        <!-- </div> -->
+
                         <lightning-input-field field-name={fields.nameField} required></lightning-input-field>
                         <lightning-input-field field-name={fields.billingStreet}></lightning-input-field>
                         <lightning-input-field field-name={fields.billingCity}></lightning-input-field>
@@ -21,13 +18,6 @@
                             postal-code-label="Billing PostalCode"
                             required
                             field-name="BillingAddress"></lightning-input-address> -->
-                    
-                        <!-- <div class="slds-col slds-size_1-of-2"> -->
-                        <!-- </div> -->
-                        <lightning-input-field field-name="AccountSource" required></lightning-input-field>
-                        <lightning-input-field field-name="AnnualRevenue" required></lightning-input-field>
-                        <lightning-input-field field-name="Website"></lightning-input-field>
-                    
                 <!-- </div> -->
 
                 <div class="slds-p-around_medium slds-align_absolute-center">
