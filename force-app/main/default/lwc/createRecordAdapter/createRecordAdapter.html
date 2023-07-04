@@ -1,29 +1,47 @@
-<template>
-    <lightning-card   title="Hello" icon-name="standard:account">
+<!-- <template>
+    <lightning-card  variant="Narrow"  title="Create Record" icon-name="standard:account">
         <div class="slds-p-around_medium">
-            <form class="createForm">
-                <div>
-                     <!-- <lightning-input type="text" variant="standard" name="AccountName" label="Account Name" onchange={changeHandler}></lightning-input> -->
-
-                    <!-- <c-acc-tile></c-acc-tile> -->
-                        <!-- <lightning-input type="number" name="AnnualRevenue" label="Annual Revenue" formatter="percent" step="0.01" onchange={changeHandler}></lightning-input>  -->
-
-                         <!-- <lightning-input type="url" label="Website" name="Website" onchange={changeHandler} ></lightning-input>  -->
-                         <lightning-input label="Account Name" name="Name" onchange={handleInputChange}></lightning-input>
-                        <lightning-input type="number" label="Annual Revenue" name="AnnualRevenue" onchange={handleInputChange}></lightning-input>
-                        <lightning-input label="Website" name="Website" onchange={handleInputChange}></lightning-input>
-                        <!-- <lightning-button label="Create Account" variant="brand" onclick={handleCreateAccount}></lightning-button> -->
-                </div>
-
-                <div>
-                    <lightning-button variant="brand" label="Save" title="save" onclick={handleSave}></lightning-button>
-
-                    <lightning-button variant="brand" label="Cancel" title="cancel" onclick={handleCancel}></lightning-button>
-
-
-                </div>
-            </form>
             
+                <lightning-input-field field-name="Name" onchange={handleFieldChange}></lightning-input-field>
+                <lightning-input-field field-name="BillingAddress" onchange={handleFieldChange}></lightning-input-field>
+                <lightning-input-field field-name="AccountSource" onchange={handleFieldChange}></lightning-input-field>
+            
+            
+                <lightning-input-field field-name="AnnualRevenue" onchange={handleFieldChange}></lightning-input-field>
+                <lightning-input-field field-name="Website" onchange={handleFieldChange}></lightning-input-field>
+            
+        
+       
+            
+                <lightning-button label="Save" variant="brand" onclick={handleSave}></lightning-button>
+                <lightning-button label="Cancel" onclick={handleCancel}></lightning-button>
+            
+    </div>
+    </lightning-card>
+    
+</template> -->
+
+<template>
+    <lightning-card title="Create Account Record">
+        <div class="slds-p-around_medium">
+            <lightning-input label="Account Name" name="Name" onchange={handleInputChange} required></lightning-input>
+            
+            <div class="slds-m-top_medium">
+                <lightning-input label="Billing Street" name="BillingStreet" onchange={handleInputChange}></lightning-input>
+                <lightning-input label="Billing City" name="BillingCity" onchange={handleInputChange}></lightning-input>
+                <lightning-input label="Billing State/Province" name="BillingState" onchange={handleInputChange}></lightning-input>
+                <lightning-input label="Billing Postal Code" name="BillingPostalCode" onchange={handleInputChange}></lightning-input>
+                <lightning-input label="Billing Country" name="BillingCountry" onchange={handleInputChange}></lightning-input>
+                <lightning-combobox label="Account Source" name="AccountSource" onchange={handleInputChange} options={accountSourceOptions} required></lightning-combobox>
+                <lightning-input type="text" name="AnnualRevenue" label="Annual Revenue" onchange={handleInputChange} required></lightning-input>
+                <lightning-input type="url" name="Website" label="Website" onchange={handleInputChange}></lightning-input>
+            </div>
+            <div class="slds-m-top_medium slds-align_absolute-center">
+                <lightning-button variant="brand" label="Save" onclick={handleSave}></lightning-button>
+                <lightning-button variant="neutral" label="Cancel" onclick={handleCancel}></lightning-button>
+            </div>
         </div>
     </lightning-card>
 </template>
+
+

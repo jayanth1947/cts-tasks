@@ -1,0 +1,47 @@
+<template>
+    <lightning-card   title="Create Account" icon-name="standard:account">
+            <lightning-record-edit-form object-api-name={objectApiName} onsuccess={handleSuccess}> 
+
+             <div class="slds-grid slds-wrap slds-gutters"> 
+
+                <div class="slds-col slds-size_1-of-2"> 
+
+                    <lightning-input-field field-name="Name" required></lightning-input-field> 
+
+                    <lightning-input-field field-name="BillingStreet"></lightning-input-field> 
+
+                    <lightning-input-field field-name="BillingCity"></lightning-input-field> 
+
+                    <lightning-input-field field-name="BillingState"></lightning-input-field> 
+
+                    <lightning-input-field field-name="BillingPostalCode"></lightning-input-field> 
+
+                    <lightning-input-field field-name="BillingCountry"></lightning-input-field> 
+
+                    <lightning-input-field field-name="AccountSource" required></lightning-input-field> 
+
+                    <lightning-input-field field-name="AnnualRevenue" required></lightning-input-field> 
+
+                    <lightning-input-field field-name="Website"></lightning-input-field> 
+
+                </div> 
+
+            <div class="slds-p-around_medium slds-align_absolute-center"> 
+
+                <lightning-button variant="brand" label="Save" title="save" type="submit"></lightning-button> 
+
+                &nbsp; &nbsp; 
+
+                <lightning-button variant="brand" label="Cancel" title="cancel" onclick={handleCancel}></lightning-button> 
+
+            </div> 
+
+        </div> 
+
+
+
+
+
+        </lightning-record-edit-form> 
+    </lightning-card>
+</template>

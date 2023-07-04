@@ -1,0 +1,43 @@
+<template>
+    <lightning-card title="Create Account">
+        <div class="slds-p-around_medium">
+            
+                
+                    <lightning-input label="Account Name" required value={accountName}
+                                     onchange={handleInputChange}></lightning-input>
+                
+                
+                    <lightning-input label="Billing Street" value={billingStreet}
+                                     onchange={handleInputChange}></lightning-input>
+
+                    <lightning-input label="Billing City" value={billingCity}
+                    onchange={handleInputChange}></lightning-input>
+
+                    <lightning-input label="Billing State" value={billingState}
+                                     onchange={handleInputChange}></lightning-input>
+                    <lightning-input label="Billing Country" value={billingCountry}
+                    onchange={handleInputChange}></lightning-input>
+                    <lightning-input label="Billing Postal Code" value={billingPostalCode}
+                                     onchange={handleInputChange}></lightning-input>
+                
+            
+           
+                
+                    <lightning-combobox label="Account Source" required options={accountSourceOptions}
+                                        value={accountSource} onchange={handleAccountSourceChange}></lightning-combobox>
+                
+                
+                    <lightning-input label="Annual Revenue" required type="number" value={annualRevenue}
+                                     onchange={handleInputChange}></lightning-input>
+                
+                
+                    <lightning-input label="Website" value={website} onchange={handleInputChange}></lightning-input>
+                
+            </div>
+            <div class="slds-align_absolute-center slds-m-top_medium">
+                <lightning-button variant="brand" label="Save" onclick={handleSaveClick}></lightning-button>
+                <lightning-button variant="neutral" label="Cancel" onclick={handleCancelClick}></lightning-button>
+            </div>
+      
+    </lightning-card>
+</template>
