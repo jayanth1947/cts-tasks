@@ -1,0 +1,25 @@
+name: Demo Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: action/checkout@v2
+      - name: Hello Demo File
+        run: echo "Demo File"
+        shell: bash
+  end:
+    runs-on: ubuntu-latest
+    steps:
+      - name: End Demo
+        run: echo "End Demo File"
+        shell: bash
