@@ -1,10 +1,17 @@
+#Name of the Yaml File
 name: learn-github-actions
+
+#It will display the run name
 run-name: ${{ github.actor }} is learning GitHub Actions
 on: [push]
 jobs:
+#This is a Job name
   check-bats-version:
+  #Runs of linux runner which is in vm
     runs-on: ubuntu-latest
+    #Groups together all the steps that run in the check-bats-version job. 
     steps:
+    #The uses keyword specifies that this step will run v3 of the actions/checkout action.
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
