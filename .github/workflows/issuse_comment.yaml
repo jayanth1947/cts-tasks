@@ -1,0 +1,13 @@
+name: Create a comment on new issus
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  comment-with-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Gitbub Issue Comment
+        run: echo "New Issue Opened"
+        shell: bash
