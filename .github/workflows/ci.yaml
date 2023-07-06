@@ -1,11 +1,6 @@
 name: Continuous Integration workflow
 
 on:
-  pull_request:
-    branches:
-      - main
-    paths:
-      -'web/**'
   push:
     branches:
       - main
