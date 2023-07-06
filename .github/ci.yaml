@@ -1,0 +1,32 @@
+name: Continuous Integration workflow
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      -'web/**'
+  push:
+    branches:
+      - main
+    paths:
+      -'web/**'
+jobs:
+  test:
+    name: 'Run Unit tests'
+    defaults:
+      run:
+        shell: bash
+        #Define a working directory for all run steps in workflow
+        working-directory: ./web
+      runs-on: ubuntu-latest
+
+      steps:
+        - uses: action/checkout@v2
+          name: 'Checkout repository'
+
+        - name: 'Instal Dependenices'
+          run: npm install
+
+        - name: 'Run Tests'
+          run: npm run test
