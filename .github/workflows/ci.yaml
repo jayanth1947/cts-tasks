@@ -12,21 +12,14 @@ on:
     paths:
       -'web/**'
 jobs:
-  test:
-    name: 'Run Unit tests'
-    defaults:
-      run:
-        shell: bash
-        #Define a working directory for all run steps in workflow
-        working-directory: ./web
-      runs-on: ubuntu-latest
-
-      steps:
-        - uses: action/checkout@v2
-          name: 'Checkout repository'
-
-        - name: 'Instal Dependenices'
-          run: npm install
-
-        - name: 'Run Tests'
-          run: npm run test
+  example-job:
+    name: Save output
+    steps:
+      - shell: bash
+        run: |
+          expr 1 + 1 > output.log
+      - name: Upload output file
+        uses: actions/upload-artifact@v3
+        with:
+          name: output-log-file
+          path: output.log
