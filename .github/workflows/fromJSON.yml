@@ -1,4 +1,4 @@
-name: build
+name: fromJSON yaml
 on: push
 jobs:
   job1:
@@ -13,5 +13,4 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix: ${{ fromJSON(needs.job1.outputs.matrix) }}
-    steps:
-      - run: build
+    
