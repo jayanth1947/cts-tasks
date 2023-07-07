@@ -6,6 +6,7 @@ on: push
 jobs:
 #name of the Job
   prod-check:
+  
   #he if statement checks the github.ref context to determine the current branch name;
   #if the name is refs/heads/main, 
   #then the subsequent steps are executed.
