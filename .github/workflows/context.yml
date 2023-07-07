@@ -1,8 +1,19 @@
+#Name of the workflow
 name: CI Context
+
+#On pushing action
 on: push
 jobs:
+#name of the Job
   prod-check:
+  #he if statement checks the github.ref context to determine the current branch name;
+  #if the name is refs/heads/main, 
+  #then the subsequent steps are executed.
     if: ${{ github.ref == 'refs/heads/main' }}
+
+    #It will runs on linux
     runs-on: ubuntu-latest
+
+    #Display this message
     steps:
       - run: echo "Deploying to production server on branch $GITHUB_REF"
