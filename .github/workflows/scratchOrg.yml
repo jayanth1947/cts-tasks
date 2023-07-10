@@ -1,0 +1,10 @@
+# Create scratch org
+- name: 'Create scratch org'
+  on:
+    push:
+      - main
+  jobs:
+    create-scratch-org:
+    uses: forcedotcom/salesforcedx-actions@master
+    with:
+    args: 'force:org:create -f config/project-scratch-def.json -a scratch-org -s -d 1'
