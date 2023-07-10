@@ -1,5 +1,5 @@
 # Create scratch org
-- name: Create scratch org
+name: Create scratch org
   on:
     push:
       - main
