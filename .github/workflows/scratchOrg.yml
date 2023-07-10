@@ -1,7 +1,11 @@
-# Create scratch org
+
 name: Create scratch org
-  on: push
+  on: 
+  push
 jobs:
+  steps:
+    - name: run-on-ubuntu
+      runs-on: ubuntu-latest
   create-scratch-org:
     uses: forcedotcom/salesforcedx-actions@master
       with:
