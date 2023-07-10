@@ -1,0 +1,22 @@
+name: variable in actions
+
+on:
+  workflow_dispatch
+
+env:
+  DAY_OF_WEEK: Monday
+
+jobs:
+  greeting_job:
+    runs-on: ubuntu-latest
+    env:
+      Greeting: Hello
+    steps:
+      - name: "Say Hello Mona it's Monday"
+        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+        env:
+          First_Name: Mona
+
+#You can access env variable values using runner environment variables or using contexts. 
+#The example above shows three custom variables being used as environment variables in an echo command: $DAY_OF_WEEK, $Greeting, and $First_Name. 
+#The values for these variables are set, and scoped, at the workflow, job, and step level respectively.
