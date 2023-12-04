@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest #on which environment does the job to be runned
     steps:
       - name: Print String
-        run : echo "First Triggered Job"
-      - name: Print Full Name
-        run : echo "Mark Antony"
+        run : |
+          echo "First Triggered Job"
+          echo "Mark Antony"
+    
