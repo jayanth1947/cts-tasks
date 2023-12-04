@@ -1,0 +1,11 @@
+name: First Work Flow #Name of the workflow
+on:
+  workflow_dispatch #manually triggred this workflow
+jobs:
+  first-job-trigger: #Job name
+    runs-on: ubuntu-latest #on which environment does the job to be runned
+    steps:
+      - name: Print String
+        run : echo "First Triggered Job"
+      - name: Print Full Name
+        run : echo "Mark Antony"
